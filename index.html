@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title> Grocery List </title>
+			<link rel="stylesheet" href="./styles/main.css">
+		</head>
+		<body>
+
+			<div class="flex-container-header">
+				<h1> Grocery List </h1>
+				<h3 id="displayDate"> </h3>
+			</div>
+			<input id="itemInput" type="text" placeholder="Add Item">
+
+			<div class="flex-container">
+				<div id="checkbox">
+					<ul>
+					</ul>
+				</div>
+				<div id="itemList">
+					<ul>
+					</ul>
+				</div>
+				<div id="deleteItem">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<div id="button">
+				 Delete Selected Items
+			</div>
+			
+
+
+			<!--
+			We are using node <script>document.write(process.versions.node)</script>,
+      Chrome <script>document.write(process.versions.chrome)</script>,
+      and Electron <script>document.write(process.versions.electron)</script>.
+    	-->
+    	<script src="./scripts/main.js"></script>
+    </body>
+  </html>

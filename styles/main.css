@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+
+html {
+	font-family: 'Arimo', sans-serif;
+	background-color: #3c6c9b;
+	color: #FFF;
+}
+* {
+	margin: 0;
+}
+
+body {
+	min-width: 450px;
+	max-width: 750px;
+	margin: 0 auto;
+	/*order: 1px solid #FFF;*/
+}
+
+.flex-container {
+	display: flex;
+	justify-content: center;
+}
+.flex-container-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+/*				Item Input				*/
+
+#itemInput {
+	display: block;
+	width: 50%;
+	height: 30px;
+	margin: 40px auto;
+	padding: 3px;
+	font-size: 25px;
+	border: none;
+}
+
+
+/*				Item List 				*/
+ul {
+	list-style: none;
+	background-color: #62809e;
+ 	padding-left: 0;
+
+}
+li {
+	padding: 10px;
+	margin: 1px 0px;
+	border-bottom: 1px solid #3c6c9b;
+}
+
+#itemList {
+	width: 50%;
+	margin: 0px 0px;
+}
+
+#deleteItem ul li:hover {
+	cursor: pointer;
+}
+
+/*				Delete Button				*/
+
+#button {
+	width: 180px;
+	margin: 40px auto;
+	box-shadow: 1px 1px 3px black;
+	border: 1px solid #FFF;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+#button:active {
+	box-shadow: 1px 1px 5px black inset;
+}
+
+@media only screen and (max-width: 475px) {
+
+}
