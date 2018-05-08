@@ -13,7 +13,7 @@ body {
 	min-width: 450px;
 	max-width: 750px;
 	margin: 0 auto;
-	/*order: 1px solid #FFF;*/
+	border: 1px solid #FFF;
 }
 
 .flex-container {
@@ -25,7 +25,14 @@ body {
 	justify-content: space-around;
 	align-items: center;
 }
-
+ #main {
+ 	height: 182px;
+ }
+ #mainContent {
+ 	position: fixed;
+ 	width: 100%;
+ 	background-color: rgba(60, 108, 155, .9);
+ }
 
 /*				Item Input				*/
 
@@ -33,7 +40,7 @@ body {
 	display: block;
 	width: 50%;
 	height: 30px;
-	margin: 40px auto;
+	margin: 40px auto 10px auto;
 	padding: 3px;
 	font-size: 25px;
 	border: none;
@@ -66,21 +73,37 @@ li {
 	cursor: pointer;
 }
 
-/*				Delete Button				*/
-
-#button {
-	width: 180px;
-	margin: 40px auto;
+/*				 Buttons				*/
+#buttonContainer {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
+	margin: 0 auto;
+}
+.button {
+	width: 120px;
 	box-shadow: 1px 1px 3px black;
 	border: 1px solid #FFF;
 	padding: 10px;
 	cursor: pointer;
 	text-align: center;
+	font-size: 12px;
+	margin: 10px auto;
 }
-#button:active {
+
+#button {
+	
+	
+	
+}
+.button:active {
 	box-shadow: 1px 1px 5px black inset;
 }
 
-@media only screen and (max-width: 475px) {
-
+@media only screen and (max-width: 561px) {
+	.button {
+		width: 110px;
+		font-size: 10px;
+		padding: 5px;
+	}
 }

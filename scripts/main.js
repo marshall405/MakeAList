@@ -64,6 +64,8 @@ function addItem(item) {
 
 {
 	let button = document.getElementById('button');
+	let selectAllButton = document.getElementById('selectAllButton');
+	let selected = false;
 	button.addEventListener('click', function () {
 		let list = document.querySelector('#itemList ul');
 		let listItems = document.querySelectorAll('#itemList ul li');
@@ -83,6 +85,30 @@ function addItem(item) {
 		});
 		if(counter < 1) {
 			alert('Please select an item to delete');
+		}
+		selectAllButton.innerHTML = 'Select All Items';
+		selected = false;
+	});
+
+// Select All Button
+
+
+	selectAllButton.addEventListener('click', function () {
+		let checkbox = document.querySelectorAll('#checkbox ul li input');
+		if(checkbox.length > 0){
+			if(!selected){
+				checkbox.forEach(function(item) {
+					item.checked = true;
+				});
+				selectAllButton.innerHTML = 'Unselect All Items';
+				selected = true;
+			} else {
+				checkbox.forEach(function(item) {
+					item.checked = false;
+				});
+				selectAllButton.innerHTML = 'Select All Items';
+				selected = false;
+			}
 		}
 	});
 }

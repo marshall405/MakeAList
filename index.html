@@ -6,13 +6,23 @@
 			<link rel="stylesheet" href="./styles/main.css">
 		</head>
 		<body>
-
-			<div class="flex-container-header">
-				<h1> Grocery List </h1>
-				<h3 id="displayDate"> </h3>
+			<div id="main">
+				<div id="mainContent">
+					<div class="flex-container-header">
+						<h1> Grocery List </h1>
+						<h3 id="displayDate"> </h3>
+					</div>
+					<input id="itemInput" type="text" placeholder="Add Item" maxlength="45">
+					<div id="buttonContainer">
+						<div id="selectAllButton" class="button">
+					 		Select All Items
+						</div>
+						<div id="button" class="button">
+					 		Delete Selected Items
+						</div>
+					</div>
+				</div>
 			</div>
-			<input id="itemInput" type="text" placeholder="Add Item" maxlength="45">
-
 			<div class="flex-container">
 				<div id="checkbox">
 					<ul>
@@ -27,10 +37,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="button">
-				 Delete Selected Items
-			</div>
-			
+
 			
 
 
