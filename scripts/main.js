@@ -25,6 +25,19 @@ function addItem(item) {
 	let listItem = document.createElement('li');
 	list.appendChild(listItem);
 	listItem.innerHTML = item;
+	listItem.addEventListener('click', function () {
+		let listItems = document.querySelectorAll('#itemList ul li');
+		let indexOfItem = Array.from(listItems).indexOf(this);
+		let checked = document.querySelectorAll('#checkbox ul li input');
+		if(checked[indexOfItem].checked == false){
+			checked[indexOfItem].checked = true;
+		} else {
+			checked[indexOfItem].checked = false;
+		}
+
+
+
+	});
 
 
 	// add X to list item 
@@ -59,14 +72,17 @@ function addItem(item) {
 		let check = document.querySelector('#checkbox ul');
 		let checkLi = document.querySelectorAll('#checkbox ul li');
 		let checked = document.querySelectorAll('#checkbox ul li input');
+		let counter = 0;
 		checked.forEach(function(item, index) {
 			if(item.checked == true) {
+				counter += 1;
 				del.removeChild(delItems[index]);
 				list.removeChild(listItems[index]);
 				check.removeChild(checkLi[index]);
-			} else {
-				alert('Please select atleast 1 item to be remove!');
 			}
 		});
+		if(counter < 1) {
+			alert('Please select an item to delete');
+		}
 	});
 }

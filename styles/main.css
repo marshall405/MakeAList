@@ -45,6 +45,7 @@ ul {
 	list-style: none;
 	background-color: #62809e;
  	padding-left: 0;
+ 	cursor: pointer;
 
 }
 li {
@@ -59,6 +60,9 @@ li {
 }
 
 #deleteItem ul li:hover {
+	box-shadow: 0px 0px 1px #FFF;
+	/*border: 1px solid #FFF;
+	padding: 8px 9px;*/
 	cursor: pointer;
 }
 
