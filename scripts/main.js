@@ -5,6 +5,8 @@ let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 displayDate.innerHTML = `${days[d.getDay()]} - ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 
+// build empty list
+
 
 
 // Add item to list
@@ -22,21 +24,25 @@ function addItem(item) {
 
 	// add item to list
 	let list = document.querySelector('#itemList ul');
+	
 	let listItem = document.createElement('li');
 	list.appendChild(listItem);
 	listItem.innerHTML = item;
+	let listItems = document.querySelectorAll('#itemList ul li');
+	let scrollToNum = listItems.length * 38;
+	window.scrollTo(0, scrollToNum);
+	
 	listItem.addEventListener('click', function () {
-		let listItems = document.querySelectorAll('#itemList ul li');
+		
 		let indexOfItem = Array.from(listItems).indexOf(this);
+
+		
 		let checked = document.querySelectorAll('#checkbox ul li input');
 		if(checked[indexOfItem].checked == false){
 			checked[indexOfItem].checked = true;
 		} else {
 			checked[indexOfItem].checked = false;
 		}
-
-
-
 	});
 
 
@@ -111,4 +117,22 @@ function addItem(item) {
 			}
 		}
 	});
+}
+
+
+// add box shadow to fixed header after scoll begins
+{
+
+	let fixedHeader = document.getElementById('mainContent');
+	
+	document.addEventListener('scroll', function() {
+		if(window.pageYOffset < 2){
+			fixedHeader.style.boxShadow = 'none';
+		} else {
+			fixedHeader.style.boxShadow = '0px 1px 5px black';
+		}
+
+	});
+
+
 }
