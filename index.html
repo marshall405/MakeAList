@@ -1,3 +1,4 @@
+<!-- version 3 -->
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -6,37 +7,27 @@
 			<link rel="stylesheet" href="./styles/main.css">
 		</head>
 		<body>
-			<div id="main">
+			<div id="container">
+				<div id="header">
+					<div id="fixedHeader">
+						<div class="flex-container-header">
+							<h1> Grocery List </h1>
+							<h3 id="displayDate"> </h3>
+						</div>
+						<input id="itemInput" type="text" placeholder="Add Item" maxlength="30">
+						<div id="buttonContainer">
+							<div id="selectAllButton" class="button">
+						 		Select All Items
+							</div>
+							<div id="deleteSelectedButton" class="button">
+						 		Delete Selected Items
+							</div>
+						</div>
+					</div> <!-- End Header Content -->
+				</div> <!-- End Header -->
 				<div id="mainContent">
-					<div class="flex-container-header">
-						<h1> Grocery List </h1>
-						<h3 id="displayDate"> </h3>
-					</div>
-					<input id="itemInput" type="text" placeholder="Add Item" maxlength="45">
-					<div id="buttonContainer">
-						<div id="selectAllButton" class="button">
-					 		Select All Items
-						</div>
-						<div id="button" class="button">
-					 		Delete Selected Items
-						</div>
-					</div>
 				</div>
-			</div>
-			<div id="listContent" class="flex-container">
-				<div id="checkbox">
-					<ul>
-					</ul>
-				</div>
-				<div id="itemList">
-					<ul>
-					</ul>
-				</div>
-				<div id="deleteItem">
-					<ul>
-					</ul>
-				</div>
-			</div>
+			</div> <!-- End Container -->
 
 			
 
@@ -46,6 +37,6 @@
       Chrome <script>document.write(process.versions.chrome)</script>,
       and Electron <script>document.write(process.versions.electron)</script>.
     	-->
-    	<script src="./scripts/main.js"></script>
+    	<script src="./scripts/index.js"></script>
     </body>
   </html>
