@@ -10,11 +10,38 @@ html {
 	margin: 0;
 	border-radius: 10px;
 }
+
+input {
+	font-size: 25px;
+	border: none;
+	color: #3c6c9b;
+}
+input:focus{
+	outline: none;
+	box-shadow: 0px 0px 10px black;
+}
+#container {
+	display: none;
+}
 #container {
 	min-width: 400px;
 	max-width: 750px;
 	margin: 0px auto;
+	opacity: 0;
 }
+
+/*		Start Screen (Name Your List)		*/
+#nameListContainer {
+
+}
+#nameListContainer input {
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+	font-size: 28px;
+	margin: 50% auto;
+}
+
 
 /*				HEADER				*/
 
@@ -48,14 +75,9 @@ html {
 	height: 30px;
 	margin: 30px auto 10px auto;
 	padding: 3px;
-	font-size: 25px;
-	border: none;
-	color: #3c6c9b;
+	
 }
-#itemInput:focus{
-	outline: none;
-	box-shadow: 0px 0px 10px black;
-}
+
 
 /*				 Buttons				*/
 #buttonContainer {
@@ -81,6 +103,8 @@ html {
 
 
 /*				Main Content			*/
+/*	each list item div is 40px height */
+
 #mainContent {
 	width: 80%;
 	max-width: 400px;
@@ -97,7 +121,9 @@ html {
 	border-bottom: 1px solid rgba(234, 236, 239, .6);
 	height: 40px;
 }
+
 #mainContent div input {
+	/*Checkbox*/
 	margin-left: 10px;	
 }
 #mainContent div label {
@@ -105,12 +131,38 @@ html {
 	width: 60%;
 }
 .addHover:hover {
+	text-indent: 10px;
 	box-shadow: 0px 0px 10px #FFF;
 	cursor: pointer;
-}
-.disableCheck {
-	
 }
 #mainContent div p {
 	padding: 10px;
 }
+
+/*		Footer 		*/
+footer {
+	opacity: .5;
+	font-size: 10px;
+	text-align: center;
+}
+.spinner {
+	display: inline-block;
+	padding: 30px;
+}
+.spinner:hover {
+	animation: spinner 1s cubic-bezier(0.01, -0.01, 1, 0.97) infinite;
+	will-change: transform;
+}
+.spinner:nth-child(1) {
+	animation-duration: 1s;
+}
+
+@keyframes spinner {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+
+
+

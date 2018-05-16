@@ -5,7 +5,6 @@ const {app, BrowserWindow, Menu} = require('electron')
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
   let win
-  
 
   function createWindow () {
 
@@ -97,8 +96,17 @@ const {app, BrowserWindow, Menu} = require('electron')
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
     // Create the browser window.
-    win = new BrowserWindow({width: 400, height: 900, minWidth: 400, maxWidth: 750, maxHeight: 900, minHeight: 200, backgroundColor: '#3c6c9b'});
-  
+    win = new BrowserWindow(
+      {
+        width: 400, 
+        height: 900, 
+        minWidth: 400, 
+        maxWidth: 750, 
+        maxHeight: 900, 
+        minHeight: 200, 
+        backgroundColor: '#3c6c9b',
+        icon: path.join(__dirname, 'assets/icons/png/captainAmerica.png'), 
+      });
     // and load the index.html of the app.
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'index.html'),
@@ -144,27 +152,4 @@ const {app, BrowserWindow, Menu} = require('electron')
   // code. You can also put them in separate files and require them here.
 
 
-
-
-
-
-
-
-/*const {app, BrowserWindow} = require('electron');
-const path = require('path');
-const url = require('url');
-
-function createWindow() {
-	//Create the browser window.
-	let win = new BrowserWindow({width: 800, height: 600, minWidth: 450, maxWidth: 800, maxHeight: 900, minHeight: 200});
-	// and load the index.html of the app.
-	win.loadURL(url.format({
-		pathname: path.join(__dirname, 'index.html'),
-		protocol: 'file',
-		slashes: true
-	}));
-}
-
-app.on('ready', createWindow);
-console.log('hello');*/
 

@@ -1,6 +1,29 @@
-// version 3
+// version 4
+{	
+	window.onresize = resizeDetection;
+	let nameListContainer = document.getElementById('nameListContainer');
+	function resizeDetection() {
+		let screenHeight = window.innerHeight;
+		nameListContainer.style.height = screenHeight + 'px';
+	}
+	let nameInput = document.querySelector('#nameListContainer input');
+	nameInput.addEventListener('keydown', (e) => {
+		if(e.key === 'Enter'){
+			let container = document.getElementById('container');
+			let h1 = document.querySelector('#header h1');
+			h1.innerHTML = nameInput.value;
+			container.style.display = "block";
+			container.style.opacity = 1;
+			nameListContainer.style.display = 'none';
+
+		}
+	})
+	resizeDetection();
+
+}
 
 let totalItems = 0; // keep track of all items added to list
+
 {	// Get current Date and display
 	let displayDate = document.getElementById('displayDate');
 	let d = new Date();
@@ -33,16 +56,18 @@ let totalItems = 0; // keep track of all items added to list
 		}
 	});
 }
+
 {	// Build premade list
 	for(let i = 0; i < 16; i++) {
 		buildList();
 	}
 }
+
 function buildList() {
 	// Template 
 	/*<div class="flex-container">
 			<input type="checkbox" id="item1"> 
-			<label for="item1"> asdfasefawefhlkjashf </label>
+			<label for="item1"> apples... </label>
 			<p> remove </p>
 		</div>
 
@@ -57,8 +82,6 @@ function buildList() {
 	let newP		= createElement('p');
 
 	newDiv.setAttribute('class', 'flex-container');
-	newCheckBox.setAttribute('id', mainContentArray.length);
-	newLabel.setAttribute('for', mainContentArray.length);
 	newCheckBox.type = 'checkbox';
 	newCheckBox.disabled = true;
 
@@ -79,18 +102,30 @@ function addItem(item) {
 		mainContent.removeChild(this.parentNode);
 		totalItems--;
 		checkPreBuiltList();
+		updateList();
 	}
-	mainContentArray[totalItems].children[2].innerHTML = 'remove';
+	
 	mainContentArray[totalItems].children[0].disabled = false;
 	mainContentArray[totalItems].children[1].setAttribute('class', 'addHover');
 	mainContentArray[totalItems].children[2].setAttribute('class', 'addHover');
+	mainContentArray[totalItems].children[2].innerHTML = 'remove';
 
-
+	updateList();
+	scrollDown();
 	// scroll down as you add more items
 
-	let scrollToNum = totalItems * 4;
-	window.scrollTo(0, scrollToNum);
+	
 }
+
+function updateList() {
+	let mainContent = document.querySelectorAll('#mainContent div');
+	let mainContentArray = Array.from(mainContent);
+	mainContentArray.forEach(function(item, index){
+		item.children[0].setAttribute('id', index);
+		item.children[1].setAttribute('for', index);
+	});
+}
+
 function createElement(element) {
 	return document.createElement(element);
 }
@@ -127,6 +162,7 @@ function createElement(element) {
 	// Delete Selected Items Button
 	deleteSelectedItems.onclick = function() {
 		if(totalItems > 0){
+			
 			let listOfItems = document.querySelectorAll('#mainContent div input');
 			let mainContentArray = document.querySelectorAll('#mainContent div');
 			let mainContent = document.getElementById('mainContent');
@@ -139,6 +175,7 @@ function createElement(element) {
 			selectAllItems.innerHTML = 'Select All Items';
 			selected = false;
 			checkPreBuiltList();
+			scrollDown();
 			/*
 			if(document.querySelectorAll('#mainContent div').length < 16){
 				for(var i = document.querySelectorAll('#mainContent div').length; i < 16; i++){
@@ -159,6 +196,18 @@ function checkPreBuiltList() {
 }
 
 
-
-
-
+function scrollDown(){
+	// min screen height 150
+	// div height 40
+	if(totalItems < 1) {
+		window.scrollTo(0, 0);
+		return;
+	}
+	let h = window.innerHeight;
+	let scrollToNum = ((totalItems - 1) * 41);
+	if(h > (212 + scrollToNum)){
+		// do nothing
+	} else {
+		window.scrollTo(0, scrollToNum);
+	}
+}
