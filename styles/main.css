@@ -56,10 +56,12 @@ input:focus{
  	/* H1, Date, Input and Buttons */
  	position: fixed;
  	width: 100%;
+ 	max-width: 750px;
  	background-color: rgba(60, 108, 155, .9);
  }
 .flex-container-header {  
 	/* For Grocery List & Date */
+
 	display: flex;
 	justify-content: space-around;
 	align-items: center;

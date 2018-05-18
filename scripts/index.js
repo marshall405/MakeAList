@@ -50,9 +50,9 @@ let totalItems = 0; // keep track of all items added to list
 	let fixedHeader = document.getElementById('fixedHeader');
 	document.addEventListener('scroll', function() {
 		if(window.pageYOffset < 2){
-			fixedHeader.style.boxShadow = 'none';
+			fixedHeader.style.borderBottom = 'none';
 		} else {
-			fixedHeader.style.boxShadow = '0px 2px 2px rgba(255, 255, 255, .5)';
+			fixedHeader.style.borderBottom = '1px solid rgba(255, 255, 255, .5)';
 		}
 	});
 }
